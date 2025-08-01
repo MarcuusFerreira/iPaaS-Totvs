@@ -48,7 +48,7 @@ public class SaveUserTest {
 
     @Test
     @DisplayName("Should save user")
-    public void teste01() {
+    public void test01() {
         doNothing().when(validator).existsByEmail(anyString());
         when(repository.save(any(User.class))).thenReturn(user);
 
@@ -61,7 +61,7 @@ public class SaveUserTest {
 
     @Test
     @DisplayName("Should not save user")
-    public void teste02() {
+    public void test02() {
         doThrow(new EmailAlreadyExistsException("Email not available")).when(validator).existsByEmail(anyString());
         EmailAlreadyExistsException exception = assertThrows(EmailAlreadyExistsException.class, () -> {
             saveUser.execute(createUserCommand);
