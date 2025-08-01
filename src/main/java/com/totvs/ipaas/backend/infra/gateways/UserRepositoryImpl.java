@@ -6,6 +6,9 @@ import com.totvs.ipaas.backend.infra.mappers.UserMapper;
 import com.totvs.ipaas.backend.infra.persistence.entities.UserEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.UserRepositoryJpa;
 
+import java.util.Optional;
+import java.util.UUID;
+
 public class UserRepositoryImpl implements UserRepositoryInterface {
 
     private final UserRepositoryJpa repository;
@@ -25,6 +28,12 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
     @Override
     public boolean existsByEmail(String email) {
         return repository.existsByEmail(email);
+    }
+
+    @Override
+    public Optional<User> findById(UUID id) {
+        Optional<UserEntity> entity = repository.findById(id);
+        return entity.map(mapper::toDomain);
     }
 
 }

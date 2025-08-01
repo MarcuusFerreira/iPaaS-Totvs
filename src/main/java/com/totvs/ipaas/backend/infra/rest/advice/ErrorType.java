@@ -5,6 +5,7 @@ public enum ErrorType {
     UNINTELLIGIBLE_MESSAGE("Unintelligible message"),
     INVALID_PARAMETER("Invalid parameter"),
     INVALID_DATA("Invalid data"),
+    INVALID_PATH("Invalid path"),
     RESOURCE_NOT_FOUND("Resource not found"),
     BUSINESS("Business rule violated"),
     SYSTEM_ERROR("System error");

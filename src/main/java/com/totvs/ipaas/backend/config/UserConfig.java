@@ -1,7 +1,9 @@
 package com.totvs.ipaas.backend.config;
 
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
+import com.totvs.ipaas.backend.application.usecases.implementations.FindUserByIdImpl;
 import com.totvs.ipaas.backend.application.usecases.implementations.SaveUserImpl;
+import com.totvs.ipaas.backend.application.usecases.interfaces.FindUserById;
 import com.totvs.ipaas.backend.application.usecases.interfaces.SaveUser;
 import com.totvs.ipaas.backend.application.validator.UserValidator;
 import com.totvs.ipaas.backend.infra.gateways.UserRepositoryImpl;
@@ -31,6 +33,11 @@ public class UserConfig {
     @Bean
     public SaveUser saveUser(UserRepositoryInterface userRepository, UserValidator userValidator) {
         return new SaveUserImpl(userRepository, userValidator);
+    }
+
+    @Bean
+    public FindUserById findUserById(UserRepositoryInterface userRepository) {
+        return new FindUserByIdImpl(userRepository);
     }
 
 }
