@@ -50,7 +50,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> handleValidationException(ValidationException e, WebRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ErrorType type = ErrorType.BUSINESS;
-        String message = "A business rule was violated. Please check the input data";
+        String message = e.getMessage() != null ? e.getMessage() : "A business rule was violated. Please check the input data";
         ApiErrorDTO error = createApiError(status, type.getValue(), message, null, request);
         return handleExceptionInternal(e, error, new HttpHeaders(), status, request);
     }

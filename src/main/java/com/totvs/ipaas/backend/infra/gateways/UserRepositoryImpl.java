@@ -31,6 +31,11 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
     }
 
     @Override
+    public boolean existsById(UUID id) {
+        return repository.existsById(id);
+    }
+
+    @Override
     public Optional<User> findById(UUID id) {
         Optional<UserEntity> entity = repository.findById(id);
         return entity.map(mapper::toDomain);
