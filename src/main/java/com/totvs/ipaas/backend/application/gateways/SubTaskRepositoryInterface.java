@@ -13,4 +13,6 @@ public interface SubTaskRepositoryInterface {
 
     boolean existsById(UUID id);
 
+    boolean existsOpenSubTasks(UUID id);
+
 }

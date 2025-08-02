@@ -1,6 +1,6 @@
 package com.totvs.ipaas.backend.infra.persistence.entities;
 
-import com.totvs.ipaas.backend.domain.models.StatusSubTask;
+import com.totvs.ipaas.backend.infra.persistence.enums.StatusSubTaskEntity;
 import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
@@ -15,7 +15,7 @@ public class SubTaskEntity {
     private String title;
     private String description;
     @Enumerated(EnumType.STRING)
-    private StatusSubTask status;
+    private StatusSubTaskEntity status;
     private OffsetDateTime creationDate;
     private OffsetDateTime completedDate;
     @ManyToOne
@@ -33,7 +33,7 @@ public class SubTaskEntity {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.status = StatusSubTask.valueOf(status);
+        this.status = StatusSubTaskEntity.valueOf(status);
         this.creationDate =  creationDate;
         this.completedDate = completedDate;
         this.taskEntity = new TaskEntity(taskId);
@@ -63,11 +63,11 @@ public class SubTaskEntity {
         this.description = description;
     }
 
-    public StatusSubTask getStatus() {
+    public StatusSubTaskEntity getStatus() {
         return status;
     }
 
-    public void setStatus(StatusSubTask status) {
+    public void setStatus(StatusSubTaskEntity status) {
         this.status = status;
     }
 

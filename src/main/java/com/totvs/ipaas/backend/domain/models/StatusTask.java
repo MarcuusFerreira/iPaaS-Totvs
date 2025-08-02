@@ -1,5 +1,7 @@
 package com.totvs.ipaas.backend.domain.models;
 
+import com.totvs.ipaas.backend.domain.exception.ValidationException;
+
 public enum StatusTask {
 
     PENDING("PENDING"),
@@ -14,6 +16,14 @@ public enum StatusTask {
 
     public String getValue() {
         return value;
+    }
+
+    public StatusTask getNextStatus() {
+        return switch (this) {
+            case PENDING -> IN_PROGRESS;
+            case IN_PROGRESS ->  COMPLETED;
+            case COMPLETED -> throw new ValidationException("Cannot update status COMPLETED.");
+        };
     }
 
 }

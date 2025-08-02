@@ -1,8 +1,11 @@
 package com.totvs.ipaas.backend.config;
 
+import com.totvs.ipaas.backend.application.gateways.SubTaskRepositoryInterface;
 import com.totvs.ipaas.backend.application.gateways.TaskRepositoryInterface;
 import com.totvs.ipaas.backend.application.usecases.implementations.SaveTaskImpl;
+import com.totvs.ipaas.backend.application.usecases.implementations.UpdateTaskStatusImpl;
 import com.totvs.ipaas.backend.application.usecases.interfaces.SaveTask;
+import com.totvs.ipaas.backend.application.usecases.interfaces.UpdateTaskStatus;
 import com.totvs.ipaas.backend.application.validator.TaskValidator;
 import com.totvs.ipaas.backend.application.validator.UserValidator;
 import com.totvs.ipaas.backend.infra.gateways.TaskRepositoryImpl;
@@ -30,8 +33,12 @@ public class TaskConfig {
     }
 
     @Bean
-    public TaskValidator taskValidator(TaskRepositoryInterface taskRepository) {
-        return new TaskValidator(taskRepository);
+    public TaskValidator taskValidator(TaskRepositoryInterface taskRepository, SubTaskRepositoryInterface subTaskRepository) {
+        return new TaskValidator(taskRepository, subTaskRepository);
     }
 
+    @Bean
+    public UpdateTaskStatus updateTaskStatus(TaskRepositoryInterface taskRepository, TaskValidator validator) {
+        return new UpdateTaskStatusImpl(taskRepository, validator);
+    }
 }

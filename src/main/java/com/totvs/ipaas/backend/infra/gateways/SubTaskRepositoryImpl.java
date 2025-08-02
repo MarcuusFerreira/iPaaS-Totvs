@@ -4,6 +4,7 @@ import com.totvs.ipaas.backend.application.gateways.SubTaskRepositoryInterface;
 import com.totvs.ipaas.backend.domain.models.SubTask;
 import com.totvs.ipaas.backend.infra.mappers.SubTaskMapper;
 import com.totvs.ipaas.backend.infra.persistence.entities.SubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.enums.StatusSubTaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.SubTaskRepositoryJpa;
 
 import java.util.Optional;
@@ -34,5 +35,10 @@ public class SubTaskRepositoryImpl implements SubTaskRepositoryInterface {
     @Override
     public boolean existsById(UUID id) {
         return subTaskRepository.existsById(id);
+    }
+
+    @Override
+    public boolean existsOpenSubTasks(UUID taskId) {
+        return subTaskRepository.existsByStatusNotAndTaskEntityId(StatusSubTaskEntity.COMPLETED, taskId);
     }
 }

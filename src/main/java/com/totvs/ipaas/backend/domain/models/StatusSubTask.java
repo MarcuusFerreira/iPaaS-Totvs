@@ -22,7 +22,7 @@ public enum StatusSubTask {
         return switch (this) {
             case PENDING -> IN_PROGRESS;
             case IN_PROGRESS ->  COMPLETED;
-            case COMPLETED -> throw new ValidationException(String.format("Cannot update status COMPLETED."));
+            case COMPLETED -> throw new ValidationException("Cannot update status COMPLETED.");
         };
     }
 
