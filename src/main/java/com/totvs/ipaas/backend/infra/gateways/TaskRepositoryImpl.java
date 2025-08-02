@@ -6,6 +6,8 @@ import com.totvs.ipaas.backend.infra.mappers.TaskMapper;
 import com.totvs.ipaas.backend.infra.persistence.entities.TaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.TaskRepositoryJpa;
 
+import java.util.UUID;
+
 public class TaskRepositoryImpl implements TaskRepositoryInterface {
 
     private final TaskRepositoryJpa repository;
@@ -20,6 +22,11 @@ public class TaskRepositoryImpl implements TaskRepositoryInterface {
     public Task save(Task task) {
         TaskEntity entity = mapper.toEntity(task);
         return mapper.toDomain(repository.save(entity));
+    }
+
+    @Override
+    public boolean existsById(UUID id) {
+        return repository.existsById(id);
     }
 
 }

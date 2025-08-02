@@ -1,46 +1,35 @@
-package com.totvs.ipaas.backend.infra.persistence.entities;
-
-import com.totvs.ipaas.backend.infra.persistence.enums.StatusTaskEntity;
-import jakarta.persistence.*;
+package com.totvs.ipaas.backend.domain.models;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-@Entity
-@Table(name = "task")
-public class TaskEntity {
+public class SubTask {
 
-    @Id
     private UUID id;
     private String title;
     private String description;
-    @Enumerated(EnumType.STRING)
-    private StatusTaskEntity status;
+    private StatusSubTask status;
     private OffsetDateTime creationDate;
     private OffsetDateTime completedDate;
-    @ManyToOne
-    @JoinColumn(
-            name = "user_id",
-            referencedColumnName = "id",
-            nullable = false,
-            foreignKey = @ForeignKey(name = "fk_task_user_id")
-    )
-    private UserEntity userEntity;
+    private UUID taskId;
 
-    public TaskEntity() {}
-
-    public TaskEntity(UUID id) {
-        this.id = id;
+    public SubTask(String title, String description, UUID taskId) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.description = description;
+        this.status = StatusSubTask.PENDING;
+        this.creationDate = OffsetDateTime.now();
+        this.taskId = taskId;
     }
 
-    public TaskEntity(UUID id, String title, String description, String status, OffsetDateTime creationDate, OffsetDateTime completedDate, UUID userId) {
+    public SubTask(UUID id, String title, String description, String status,  OffsetDateTime creationDate, OffsetDateTime completedDate, UUID taskId) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.status = StatusTaskEntity.valueOf(status);
+        this.status = StatusSubTask.valueOf(status);
         this.creationDate = creationDate;
         this.completedDate = completedDate;
-        this.userEntity = new UserEntity(userId);
+        this.taskId = taskId;
     }
 
     public UUID getId() {
@@ -67,11 +56,11 @@ public class TaskEntity {
         this.description = description;
     }
 
-    public StatusTaskEntity getStatus() {
+    public StatusSubTask getStatus() {
         return status;
     }
 
-    public void setStatus(StatusTaskEntity status) {
+    public void setStatus(StatusSubTask status) {
         this.status = status;
     }
 
@@ -91,11 +80,11 @@ public class TaskEntity {
         this.completedDate = completedDate;
     }
 
-    public UserEntity getUserEntity() {
-        return userEntity;
+    public UUID getTaskId() {
+        return taskId;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
+    public void setTaskId(UUID taskId) {
+        this.taskId = taskId;
     }
 }
