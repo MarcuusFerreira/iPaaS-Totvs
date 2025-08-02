@@ -6,6 +6,9 @@ import com.totvs.ipaas.backend.infra.mappers.SubTaskMapper;
 import com.totvs.ipaas.backend.infra.persistence.entities.SubTaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.SubTaskRepositoryJpa;
 
+import java.util.Optional;
+import java.util.UUID;
+
 public class SubTaskRepositoryImpl implements SubTaskRepositoryInterface {
 
     private final SubTaskRepositoryJpa subTaskRepository;
@@ -20,5 +23,16 @@ public class SubTaskRepositoryImpl implements SubTaskRepositoryInterface {
     public SubTask save(SubTask subTask) {
         SubTaskEntity entity = subTaskMapper.toEntity(subTask);
         return subTaskMapper.toDomain(subTaskRepository.save(entity));
+    }
+
+    @Override
+    public Optional<SubTask> findById(UUID id) {
+        Optional<SubTaskEntity> entity = subTaskRepository.findById(id);
+        return entity.map(subTaskMapper::toDomain);
+    }
+
+    @Override
+    public boolean existsById(UUID id) {
+        return subTaskRepository.existsById(id);
     }
 }
