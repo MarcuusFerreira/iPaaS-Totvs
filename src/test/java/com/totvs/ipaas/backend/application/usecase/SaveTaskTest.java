@@ -60,13 +60,12 @@ public class SaveTaskTest {
     @Test
     @DisplayName("Should not save user")
     public void test02() {
-        doThrow(new ValidationException(
-                String.format("User with id %s not exist. Please check the input data", userId)
-        )).when(userValidator).existsByUserId(any(UUID.class));
+        String message = String.format("User with id %s not exist. Please check the input data", userId);
+        doThrow(new ValidationException(message)).when(userValidator).existsByUserId(any(UUID.class));
         ValidationException exception = assertThrows(ValidationException.class, () -> {
             saveTask.execute(command);
         });
-        assertEquals(String.format("User with id %s not exist. Please check the input data", userId), exception.getMessage());
+        assertEquals(message, exception.getMessage());
     }
 
 }

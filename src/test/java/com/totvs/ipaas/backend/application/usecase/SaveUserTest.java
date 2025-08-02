@@ -62,11 +62,12 @@ public class SaveUserTest {
     @Test
     @DisplayName("Should not save user")
     public void test02() {
-        doThrow(new EmailAlreadyExistsException("Email not available")).when(validator).existsByEmail(anyString());
+        String message = "Email not available";
+        doThrow(new EmailAlreadyExistsException(message)).when(validator).existsByEmail(anyString());
         EmailAlreadyExistsException exception = assertThrows(EmailAlreadyExistsException.class, () -> {
             saveUser.execute(createUserCommand);
         });
-        assertEquals("Email not available", exception.getMessage());
+        assertEquals(message, exception.getMessage());
     }
 
 }
