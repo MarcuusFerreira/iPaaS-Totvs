@@ -3,8 +3,10 @@ package com.totvs.ipaas.backend.application.usecases.implementations;
 import com.totvs.ipaas.backend.application.gateways.SubTaskRepositoryInterface;
 import com.totvs.ipaas.backend.application.usecases.interfaces.UpdateSubTaskStatus;
 import com.totvs.ipaas.backend.domain.exception.ResourceNotFoundException;
+import com.totvs.ipaas.backend.domain.models.StatusSubTask;
 import com.totvs.ipaas.backend.domain.models.SubTask;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public class UpdateSubTaskStatusImpl implements UpdateSubTaskStatus {
@@ -20,6 +22,9 @@ public class UpdateSubTaskStatusImpl implements UpdateSubTaskStatus {
     public void execute(UUID id) {
         SubTask subTask = subTaskRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format("SubTask with id %s not found", id)));
         subTask.setStatus(subTask.getStatus().getNextStatus());
+        if (subTask.getStatus().equals(StatusSubTask.COMPLETED)) {
+            subTask.setCompletedDate(OffsetDateTime.now());
+        }
         subTaskRepository.save(subTask);
     }
 
