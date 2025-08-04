@@ -1,6 +1,14 @@
 package com.totvs.ipaas.backend.infra.rest.controller.subtask;
 
 import com.totvs.ipaas.backend.application.usecases.interfaces.subtask.UpdateSubTaskStatus;
+import com.totvs.ipaas.backend.infra.dtos.response.error.ApiErrorDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +19,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "subtasks")
+@Tag(name = "SubTasks", description = "Operations related to the subtasks resource")
 public class PatchSubTaskRestController {
 
     private final UpdateSubTaskStatus updateSubTaskStatus;
@@ -19,6 +28,26 @@ public class PatchSubTaskRestController {
         this.updateSubTaskStatus = updateSubTaskStatus;
     }
 
+    @Operation(summary = "Updates the status of the subtask")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Updates the status of the subtask and does not return data"),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Subtask not found by subtask id",
+                    content = @Content(
+                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = ApiErrorDTO.class)
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "The status update violated an application rule",
+                    content = @Content(
+                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = ApiErrorDTO.class)
+                    )
+            )
+    })
     @PatchMapping("{id}/status")
     public ResponseEntity<?> patchSubTaskStatus(@PathVariable("id") UUID id) {
         updateSubTaskStatus.execute(id);
