@@ -51,7 +51,7 @@ public class UpdateSubTaskStatusTest {
         verify(subTaskRepository).save(captor.capture());
         SubTask saved = captor.getValue();
 
-        assertEquals(saved.getStatus(), StatusSubTask.COMPLETED);
+        assertEquals(StatusSubTask.COMPLETED, saved.getStatus());
         assertNotNull(saved.getCompletedDate());
     }
 
