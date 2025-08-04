@@ -10,13 +10,12 @@ import com.totvs.ipaas.backend.infra.persistence.entities.task.TaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.entities.task.StatusTaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.TaskRepositoryJpa;
 import com.totvs.ipaas.backend.infra.persistence.specifications.TaskSpecification;
+import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TaskRepositoryImpl implements TaskRepositoryInterface {
@@ -48,11 +47,14 @@ public class TaskRepositoryImpl implements TaskRepositoryInterface {
 
     @Override
     public PagedResult<Task> findByStatusAndUserId(StatusTask status, UUID userId, int page, int size) {
-        Specification<TaskEntity> spec = Specification
-                .where(TaskSpecification.hasStatus(StatusTaskEntity.valueOf(status.getValue())));
+        List<Specification<TaskEntity>> specifications = new ArrayList<>();
+        specifications.add(TaskSpecification.hasStatus(StatusTaskEntity.valueOf(status.getValue())));
         if (userId != null) {
-            spec = spec.and(TaskSpecification.hasUserId(userId));
+            specifications.add(TaskSpecification.hasUserId(userId));
         }
+        Specification<TaskEntity> spec = specifications.stream()
+                .filter(Objects::nonNull)
+                .reduce(Specification.unrestricted(), Specification::and);
         Page<TaskEntity> resultEntity = repository.findAll(spec, PageRequest.of(page, size));
         if (!resultEntity.hasContent()) {
             StringBuilder stringBuilder = new StringBuilder()

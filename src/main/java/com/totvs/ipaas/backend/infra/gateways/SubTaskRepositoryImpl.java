@@ -8,15 +8,14 @@ import com.totvs.ipaas.backend.domain.models.subtask.SubTask;
 import com.totvs.ipaas.backend.infra.mappers.SubTaskMapper;
 import com.totvs.ipaas.backend.infra.persistence.entities.subtask.SubTaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.entities.subtask.StatusSubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.task.TaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.SubTaskRepositoryJpa;
 import com.totvs.ipaas.backend.infra.persistence.specifications.SubTaskSpecification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SubTaskRepositoryImpl implements SubTaskRepositoryInterface {
@@ -53,11 +52,14 @@ public class SubTaskRepositoryImpl implements SubTaskRepositoryInterface {
 
     @Override
     public PagedResult<SubTask> findByTaskIdAndStatus(UUID taskId, StatusSubTask status, int page, int size) {
-        Specification<SubTaskEntity> spec = Specification.
-                where(SubTaskSpecification.hasTaskId(taskId));
+        List<Specification<SubTaskEntity>> specifications = new ArrayList<>();
+        specifications.add(SubTaskSpecification.hasTaskId(taskId));
         if (status != null) {
-            spec = spec.and(SubTaskSpecification.hasStatus(StatusSubTaskEntity.valueOf(status.getValue())));
+            specifications.add(SubTaskSpecification.hasStatus(StatusSubTaskEntity.valueOf(status.getValue())));
         }
+        Specification<SubTaskEntity> spec = specifications.stream()
+                .filter(Objects::nonNull)
+                .reduce(Specification.unrestricted(), Specification::and);
         Page<SubTaskEntity> resultEntity = subTaskRepository.findAll(spec, PageRequest.of(page, size));
         if (!resultEntity.hasContent()) {
             StringBuilder stringBuilder = new StringBuilder()
