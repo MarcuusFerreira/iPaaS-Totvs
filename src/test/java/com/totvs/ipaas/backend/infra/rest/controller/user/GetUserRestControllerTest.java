@@ -1,4 +1,4 @@
-package com.totvs.ipaas.backend.infra.rest.controller;
+package com.totvs.ipaas.backend.infra.rest.controller.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.totvs.ipaas.backend.application.usecases.interfaces.user.FindUserById;
@@ -8,7 +8,6 @@ import com.totvs.ipaas.backend.infra.dtos.response.user.UserResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.UserMapper;
 import com.totvs.ipaas.backend.infra.rest.advice.ErrorType;
 import com.totvs.ipaas.backend.infra.rest.advice.RestExceptionHandler;
-import com.totvs.ipaas.backend.infra.rest.controller.user.GetUserRestController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

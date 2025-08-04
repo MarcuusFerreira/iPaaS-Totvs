@@ -1,4 +1,4 @@
-package com.totvs.ipaas.backend.infra.rest.controller;
+package com.totvs.ipaas.backend.infra.rest.controller.task;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.totvs.ipaas.backend.application.command.task.CreateTaskCommand;
@@ -11,7 +11,6 @@ import com.totvs.ipaas.backend.infra.dtos.response.task.TaskResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.TaskMapper;
 import com.totvs.ipaas.backend.infra.rest.advice.ErrorType;
 import com.totvs.ipaas.backend.infra.rest.advice.RestExceptionHandler;
-import com.totvs.ipaas.backend.infra.rest.controller.task.PostTaskRestController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

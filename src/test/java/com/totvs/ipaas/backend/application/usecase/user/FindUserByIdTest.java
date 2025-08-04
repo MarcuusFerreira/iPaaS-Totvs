@@ -1,4 +1,4 @@
-package com.totvs.ipaas.backend.application.usecase;
+package com.totvs.ipaas.backend.application.usecase.user;
 
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
 import com.totvs.ipaas.backend.application.usecases.implementations.user.FindUserByIdImpl;

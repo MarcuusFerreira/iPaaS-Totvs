@@ -1,4 +1,4 @@
-package com.totvs.ipaas.backend.application.usecase;
+package com.totvs.ipaas.backend.application.usecase.subtask;
 
 import com.totvs.ipaas.backend.application.command.subtask.CreateSubTaskCommand;
 import com.totvs.ipaas.backend.application.gateways.SubTaskRepositoryInterface;
