@@ -1,5 +1,10 @@
 # 🚀 Desafio Técnico iPaaS – Backend Java Pleno
 
+## 📝 Padrão de Commits
+
+Este projeto segue o padrão de commits descrito no repositório [Padrões de Commits - iuricode](https://github.com/iuricode/padroes-de-commits).  
+Consulte o link para entender como estruturar as mensagens e manter um histórico de commits organizado e padronizado.
+
 ## 🏃‍♂️ Como executar o projeto
 
 O projeto pode ser executado de duas formas: sem Docker ou com Docker.
