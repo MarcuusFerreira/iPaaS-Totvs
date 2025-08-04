@@ -2,6 +2,9 @@ package com.totvs.ipaas.backend.infra.persistence.repositories;
 
 import com.totvs.ipaas.backend.infra.persistence.entities.SubTaskEntity;
 import com.totvs.ipaas.backend.infra.persistence.enums.StatusSubTaskEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
@@ -14,5 +17,7 @@ public interface SubTaskRepositoryJpa extends JpaRepository<SubTaskEntity, UUID>
     boolean existsById(UUID id);
 
     boolean existsByStatusNotAndTaskEntityId(StatusSubTaskEntity statusTaskEntity, UUID taskId);
+
+    Page<SubTaskEntity> findAll(Specification<SubTaskEntity> spec, Pageable pageable);
 
 }

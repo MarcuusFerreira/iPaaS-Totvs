@@ -1,5 +1,7 @@
 package com.totvs.ipaas.backend.application.gateways;
 
+import com.totvs.ipaas.backend.application.pagination.PagedResult;
+import com.totvs.ipaas.backend.domain.models.StatusSubTask;
 import com.totvs.ipaas.backend.domain.models.SubTask;
 
 import java.util.Optional;
@@ -14,5 +16,7 @@ public interface SubTaskRepositoryInterface {
     boolean existsById(UUID id);
 
     boolean existsOpenSubTasks(UUID id);
+
+    PagedResult<SubTask> findByTaskIdAndStatus(UUID taskId, StatusSubTask status,  int page, int size);
 
 }
