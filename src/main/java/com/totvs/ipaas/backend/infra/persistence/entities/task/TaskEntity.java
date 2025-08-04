@@ -14,7 +14,7 @@ public class TaskEntity {
     private UUID id;
     private String title;
     private String description;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private StatusTaskEntity status;
     private OffsetDateTime creationDate;
     private OffsetDateTime completedDate;
