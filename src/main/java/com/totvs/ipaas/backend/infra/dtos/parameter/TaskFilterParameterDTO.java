@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 public record TaskFilterParameterDTO(
-        @NotNull
+        @NotNull(message = "Status cannot be null")
         StatusTaskDTO status,
         UUID userId
 ) {

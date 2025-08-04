@@ -5,10 +5,10 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.PositiveOrZero;
 
 public record PageParameterDTO(
-        @PositiveOrZero
+        @PositiveOrZero(message = "Only 0 and higher numbers are accepted")
         Integer page,
-        @Min(5)
-        @Max(30)
+        @Min(value = 5, message = "The minimum page size is 5")
+        @Max(value = 30, message = "The maximum page size is 30")
         Integer pageSize
 ) {
     public PageParameterDTO {
