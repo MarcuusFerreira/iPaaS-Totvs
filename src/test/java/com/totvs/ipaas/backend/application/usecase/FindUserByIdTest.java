@@ -1,9 +1,9 @@
 package com.totvs.ipaas.backend.application.usecase;
 
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
-import com.totvs.ipaas.backend.application.usecases.implementations.FindUserByIdImpl;
+import com.totvs.ipaas.backend.application.usecases.implementations.user.FindUserByIdImpl;
 import com.totvs.ipaas.backend.domain.exception.ResourceNotFoundException;
-import com.totvs.ipaas.backend.domain.models.User;
+import com.totvs.ipaas.backend.domain.models.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

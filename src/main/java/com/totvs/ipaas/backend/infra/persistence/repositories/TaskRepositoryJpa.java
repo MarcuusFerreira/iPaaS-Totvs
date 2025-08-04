@@ -1,6 +1,6 @@
 package com.totvs.ipaas.backend.infra.persistence.repositories;
 
-import com.totvs.ipaas.backend.infra.persistence.entities.TaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.task.TaskEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

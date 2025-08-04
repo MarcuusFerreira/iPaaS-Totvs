@@ -1,6 +1,6 @@
 package com.totvs.ipaas.backend.infra.rest.controller.subtask;
 
-import com.totvs.ipaas.backend.application.usecases.interfaces.UpdateSubTaskStatus;
+import com.totvs.ipaas.backend.application.usecases.interfaces.subtask.UpdateSubTaskStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;

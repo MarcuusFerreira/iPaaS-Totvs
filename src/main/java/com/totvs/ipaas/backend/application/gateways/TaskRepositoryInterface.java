@@ -1,8 +1,8 @@
 package com.totvs.ipaas.backend.application.gateways;
 
 import com.totvs.ipaas.backend.application.pagination.PagedResult;
-import com.totvs.ipaas.backend.domain.models.StatusTask;
-import com.totvs.ipaas.backend.domain.models.Task;
+import com.totvs.ipaas.backend.domain.models.task.StatusTask;
+import com.totvs.ipaas.backend.domain.models.task.Task;
 
 import java.util.Optional;
 import java.util.UUID;

@@ -1,10 +1,10 @@
 package com.totvs.ipaas.backend.infra.rest.controller.task;
 
-import com.totvs.ipaas.backend.application.command.CreateTaskCommand;
-import com.totvs.ipaas.backend.application.usecases.interfaces.SaveTask;
-import com.totvs.ipaas.backend.domain.models.Task;
+import com.totvs.ipaas.backend.application.command.task.CreateTaskCommand;
+import com.totvs.ipaas.backend.application.usecases.interfaces.task.SaveTask;
+import com.totvs.ipaas.backend.domain.models.task.Task;
 import com.totvs.ipaas.backend.infra.dtos.request.TaskRequestDTO;
-import com.totvs.ipaas.backend.infra.dtos.response.TaskResponseDTO;
+import com.totvs.ipaas.backend.infra.dtos.response.task.TaskResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.TaskMapper;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

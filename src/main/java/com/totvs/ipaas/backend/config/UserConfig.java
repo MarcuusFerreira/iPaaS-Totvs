@@ -1,10 +1,10 @@
 package com.totvs.ipaas.backend.config;
 
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
-import com.totvs.ipaas.backend.application.usecases.implementations.FindUserByIdImpl;
-import com.totvs.ipaas.backend.application.usecases.implementations.SaveUserImpl;
-import com.totvs.ipaas.backend.application.usecases.interfaces.FindUserById;
-import com.totvs.ipaas.backend.application.usecases.interfaces.SaveUser;
+import com.totvs.ipaas.backend.application.usecases.implementations.user.FindUserByIdImpl;
+import com.totvs.ipaas.backend.application.usecases.implementations.user.SaveUserImpl;
+import com.totvs.ipaas.backend.application.usecases.interfaces.user.FindUserById;
+import com.totvs.ipaas.backend.application.usecases.interfaces.user.SaveUser;
 import com.totvs.ipaas.backend.application.validator.UserValidator;
 import com.totvs.ipaas.backend.infra.gateways.UserRepositoryImpl;
 import com.totvs.ipaas.backend.infra.mappers.UserMapper;

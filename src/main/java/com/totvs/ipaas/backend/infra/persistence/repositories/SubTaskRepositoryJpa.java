@@ -1,7 +1,7 @@
 package com.totvs.ipaas.backend.infra.persistence.repositories;
 
-import com.totvs.ipaas.backend.infra.persistence.entities.SubTaskEntity;
-import com.totvs.ipaas.backend.infra.persistence.enums.StatusSubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.subtask.SubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.subtask.StatusSubTaskEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

@@ -1,8 +1,8 @@
 package com.totvs.ipaas.backend.infra.rest.controller.user;
 
-import com.totvs.ipaas.backend.application.usecases.interfaces.FindUserById;
-import com.totvs.ipaas.backend.domain.models.User;
-import com.totvs.ipaas.backend.infra.dtos.response.UserResponseDTO;
+import com.totvs.ipaas.backend.application.usecases.interfaces.user.FindUserById;
+import com.totvs.ipaas.backend.domain.models.user.User;
+import com.totvs.ipaas.backend.infra.dtos.response.user.UserResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.UserMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

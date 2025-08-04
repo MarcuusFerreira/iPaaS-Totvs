@@ -1,9 +1,9 @@
 package com.totvs.ipaas.backend.infra.rest.controller.subtask;
 
-import com.totvs.ipaas.backend.application.command.ListSubTaskCommand;
+import com.totvs.ipaas.backend.application.command.subtask.ListSubTaskCommand;
 import com.totvs.ipaas.backend.application.pagination.PagedResult;
-import com.totvs.ipaas.backend.application.usecases.interfaces.ListSubTask;
-import com.totvs.ipaas.backend.domain.models.SubTask;
+import com.totvs.ipaas.backend.application.usecases.interfaces.subtask.ListSubTask;
+import com.totvs.ipaas.backend.domain.models.subtask.SubTask;
 import com.totvs.ipaas.backend.infra.dtos.parameter.PageParameterDTO;
 import com.totvs.ipaas.backend.infra.dtos.parameter.StatusSubTaskDTO;
 import com.totvs.ipaas.backend.infra.dtos.response.PaginationResponseDTO;

@@ -1,13 +1,13 @@
 package com.totvs.ipaas.backend.infra.rest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.totvs.ipaas.backend.application.command.CreateSubTaskCommand;
-import com.totvs.ipaas.backend.application.usecases.interfaces.SaveSubTask;
+import com.totvs.ipaas.backend.application.command.subtask.CreateSubTaskCommand;
+import com.totvs.ipaas.backend.application.usecases.interfaces.subtask.SaveSubTask;
 import com.totvs.ipaas.backend.domain.exception.ValidationException;
-import com.totvs.ipaas.backend.domain.models.StatusSubTask;
-import com.totvs.ipaas.backend.domain.models.SubTask;
+import com.totvs.ipaas.backend.domain.models.subtask.StatusSubTask;
+import com.totvs.ipaas.backend.domain.models.subtask.SubTask;
 import com.totvs.ipaas.backend.infra.dtos.request.SubTaskRequestDTO;
-import com.totvs.ipaas.backend.infra.dtos.response.SubTaskResponseDTO;
+import com.totvs.ipaas.backend.infra.dtos.response.subtask.SubTaskResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.SubTaskMapper;
 import com.totvs.ipaas.backend.infra.rest.advice.ErrorType;
 import com.totvs.ipaas.backend.infra.rest.advice.RestExceptionHandler;

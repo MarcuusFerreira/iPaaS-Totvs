@@ -1,9 +1,9 @@
 package com.totvs.ipaas.backend.infra.gateways;
 
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
-import com.totvs.ipaas.backend.domain.models.User;
+import com.totvs.ipaas.backend.domain.models.user.User;
 import com.totvs.ipaas.backend.infra.mappers.UserMapper;
-import com.totvs.ipaas.backend.infra.persistence.entities.UserEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.user.UserEntity;
 import com.totvs.ipaas.backend.infra.persistence.repositories.UserRepositoryJpa;
 
 import java.util.Optional;

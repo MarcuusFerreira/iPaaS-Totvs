@@ -1,8 +1,8 @@
 package com.totvs.ipaas.backend.infra.mappers;
 
-import com.totvs.ipaas.backend.domain.models.User;
-import com.totvs.ipaas.backend.infra.dtos.response.UserResponseDTO;
-import com.totvs.ipaas.backend.infra.persistence.entities.UserEntity;
+import com.totvs.ipaas.backend.domain.models.user.User;
+import com.totvs.ipaas.backend.infra.dtos.response.user.UserResponseDTO;
+import com.totvs.ipaas.backend.infra.persistence.entities.user.UserEntity;
 
 public class UserMapper {
 

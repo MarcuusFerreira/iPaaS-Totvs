@@ -1,7 +1,7 @@
 package com.totvs.ipaas.backend.infra.persistence.specifications;
 
-import com.totvs.ipaas.backend.infra.persistence.entities.SubTaskEntity;
-import com.totvs.ipaas.backend.infra.persistence.enums.StatusSubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.subtask.SubTaskEntity;
+import com.totvs.ipaas.backend.infra.persistence.entities.subtask.StatusSubTaskEntity;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.UUID;

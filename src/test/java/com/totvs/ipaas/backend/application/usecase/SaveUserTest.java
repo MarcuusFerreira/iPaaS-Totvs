@@ -1,11 +1,11 @@
 package com.totvs.ipaas.backend.application.usecase;
 
-import com.totvs.ipaas.backend.application.command.CreateUserCommand;
+import com.totvs.ipaas.backend.application.command.user.CreateUserCommand;
 import com.totvs.ipaas.backend.application.gateways.UserRepositoryInterface;
-import com.totvs.ipaas.backend.application.usecases.implementations.SaveUserImpl;
+import com.totvs.ipaas.backend.application.usecases.implementations.user.SaveUserImpl;
 import com.totvs.ipaas.backend.application.validator.UserValidator;
 import com.totvs.ipaas.backend.domain.exception.EmailAlreadyExistsException;
-import com.totvs.ipaas.backend.domain.models.User;
+import com.totvs.ipaas.backend.domain.models.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

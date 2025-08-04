@@ -1,11 +1,11 @@
 package com.totvs.ipaas.backend.application.usecase;
 
-import com.totvs.ipaas.backend.application.command.CreateSubTaskCommand;
+import com.totvs.ipaas.backend.application.command.subtask.CreateSubTaskCommand;
 import com.totvs.ipaas.backend.application.gateways.SubTaskRepositoryInterface;
-import com.totvs.ipaas.backend.application.usecases.implementations.SaveSubTaskImpl;
+import com.totvs.ipaas.backend.application.usecases.implementations.subtask.SaveSubTaskImpl;
 import com.totvs.ipaas.backend.application.validator.TaskValidator;
 import com.totvs.ipaas.backend.domain.exception.ValidationException;
-import com.totvs.ipaas.backend.domain.models.SubTask;
+import com.totvs.ipaas.backend.domain.models.subtask.SubTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

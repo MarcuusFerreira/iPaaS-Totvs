@@ -1,6 +1,6 @@
 package com.totvs.ipaas.backend.application.gateways;
 
-import com.totvs.ipaas.backend.domain.models.User;
+import com.totvs.ipaas.backend.domain.models.user.User;
 
 import java.util.Optional;
 import java.util.UUID;

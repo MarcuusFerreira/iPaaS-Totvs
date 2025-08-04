@@ -1,12 +1,12 @@
 package com.totvs.ipaas.backend.application.usecase;
 
-import com.totvs.ipaas.backend.application.command.CreateTaskCommand;
+import com.totvs.ipaas.backend.application.command.task.CreateTaskCommand;
 import com.totvs.ipaas.backend.application.gateways.TaskRepositoryInterface;
-import com.totvs.ipaas.backend.application.usecases.implementations.SaveTaskImpl;
-import com.totvs.ipaas.backend.application.usecases.interfaces.SaveTask;
+import com.totvs.ipaas.backend.application.usecases.implementations.task.SaveTaskImpl;
+import com.totvs.ipaas.backend.application.usecases.interfaces.task.SaveTask;
 import com.totvs.ipaas.backend.application.validator.UserValidator;
 import com.totvs.ipaas.backend.domain.exception.ValidationException;
-import com.totvs.ipaas.backend.domain.models.Task;
+import com.totvs.ipaas.backend.domain.models.task.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

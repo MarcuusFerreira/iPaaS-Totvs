@@ -1,8 +1,8 @@
 package com.totvs.ipaas.backend.infra.mappers;
 
-import com.totvs.ipaas.backend.domain.models.Task;
-import com.totvs.ipaas.backend.infra.dtos.response.TaskResponseDTO;
-import com.totvs.ipaas.backend.infra.persistence.entities.TaskEntity;
+import com.totvs.ipaas.backend.domain.models.task.Task;
+import com.totvs.ipaas.backend.infra.dtos.response.task.TaskResponseDTO;
+import com.totvs.ipaas.backend.infra.persistence.entities.task.TaskEntity;
 
 public class TaskMapper {
 

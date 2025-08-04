@@ -1,10 +1,10 @@
 package com.totvs.ipaas.backend.infra.rest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.totvs.ipaas.backend.application.usecases.interfaces.FindUserById;
+import com.totvs.ipaas.backend.application.usecases.interfaces.user.FindUserById;
 import com.totvs.ipaas.backend.domain.exception.ResourceNotFoundException;
-import com.totvs.ipaas.backend.domain.models.User;
-import com.totvs.ipaas.backend.infra.dtos.response.UserResponseDTO;
+import com.totvs.ipaas.backend.domain.models.user.User;
+import com.totvs.ipaas.backend.infra.dtos.response.user.UserResponseDTO;
 import com.totvs.ipaas.backend.infra.mappers.UserMapper;
 import com.totvs.ipaas.backend.infra.rest.advice.ErrorType;
 import com.totvs.ipaas.backend.infra.rest.advice.RestExceptionHandler;
